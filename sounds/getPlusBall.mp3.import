@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/getPlusBall.mp3-1e89964202a211deeed3b60d6ebb9a40.mp3str"
+
+[deps]
+
+source_file="res://sounds/getPlusBall.mp3"
+dest_files=[ "res://.import/getPlusBall.mp3-1e89964202a211deeed3b60d6ebb9a40.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

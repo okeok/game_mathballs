@@ -1,0 +1,109 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://sceense/mainBall.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sounds/mainTheme.mp3" type="AudioStream" id=2]
+[ext_resource path="res://scripts/game.gd" type="Script" id=3]
+[ext_resource path="res://sounds/endOfTheGame.mp3" type="AudioStream" id=4]
+[ext_resource path="res://fonts/Marmelad-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://imgs/restart-arrow.png" type="Texture" id=7]
+[ext_resource path="res://sceense/numbers.tscn" type="PackedScene" id=8]
+
+[sub_resource type="DynamicFont" id=3]
+size = 54
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 5 )
+
+[node name="game" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="restartBlock" type="Control" parent="UI"]
+pause_mode = 2
+visible = false
+margin_left = 1.0
+margin_right = 392.0
+margin_bottom = 847.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="goToMainMenu" type="LinkButton" parent="UI/restartBlock"]
+margin_left = 105.0
+margin_top = 507.0
+margin_right = 263.0
+margin_bottom = 573.0
+custom_colors/font_color_focus = Color( 0.74902, 0.0352941, 0.0352941, 1 )
+custom_colors/font_color = Color( 0.74902, 0.0352941, 0.0352941, 1 )
+custom_colors/font_color_hover = Color( 0.74902, 0.0352941, 0.0352941, 1 )
+custom_colors/font_color_pressed = Color( 0.74902, 0.0352941, 0.0352941, 1 )
+custom_fonts/font = SubResource( 3 )
+shortcut_in_tooltip = false
+text = "MENU"
+underline = 2
+
+[node name="TextureButton" type="TextureButton" parent="UI/restartBlock"]
+margin_left = 52.0
+margin_top = 181.0
+margin_right = 331.0
+margin_bottom = 499.0
+texture_normal = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="score" type="Label" parent="UI/restartBlock"]
+margin_top = 59.0
+margin_right = 389.0
+margin_bottom = 167.0
+custom_colors/font_color = Color( 0.74902, 0.0352941, 0.0352941, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gameLevel" type="Label" parent="UI"]
+margin_left = 314.0
+margin_top = 18.0
+margin_right = 374.0
+margin_bottom = 58.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="ColorRect" parent="."]
+margin_right = 191.0
+margin_bottom = 242.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="numbers" parent="." instance=ExtResource( 8 )]
+position = Vector2( 0, 255 )
+
+[node name="mainBall" parent="." instance=ExtResource( 1 )]
+position = Vector2( 180, 543 )
+
+[node name="gameObjects" type="Node2D" parent="."]
+
+[node name="mainTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[node name="endOfGame" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 4 )
+
+[connection signal="pressed" from="UI/restartBlock/goToMainMenu" to="." method="_on_goToMainMenu_pressed"]
+[connection signal="pressed" from="UI/restartBlock/TextureButton" to="." method="_on_TextureButton_pressed"]

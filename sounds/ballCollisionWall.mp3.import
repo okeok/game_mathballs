@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ballCollisionWall.mp3-4e679a05c869abc11d233b512108dcfd.mp3str"
+
+[deps]
+
+source_file="res://sounds/ballCollisionWall.mp3"
+dest_files=[ "res://.import/ballCollisionWall.mp3-4e679a05c869abc11d233b512108dcfd.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

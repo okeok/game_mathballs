@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://fonts/Marmelad-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://imgs/warm.png" type="Texture" id=2]
+[ext_resource path="res://scripts/anotherBall.gd" type="Script" id=3]
+[ext_resource path="res://sounds/getMinusBall.mp3" type="AudioStream" id=4]
+[ext_resource path="res://sounds/getPlusBall.mp3" type="AudioStream" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 34.3657
+
+[node name="anotherBall" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -3.8147e-06, -3.8147e-06 )
+scale = Vector2( 0.34, 0.34 )
+texture = ExtResource( 2 )
+
+[node name="number" type="Label" parent="."]
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "0"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="setBall" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="setBall"]
+shape = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[node name="plusSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="minusSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = 5.0
+
+[connection signal="area_entered" from="setBall" to="." method="_on_setBall_area_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

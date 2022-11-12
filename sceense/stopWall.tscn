@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="stopWall" type="StaticBody2D"]
+
+[node name="collision" type="CollisionShape2D" parent="."]
+scale = Vector2( 1e-05, 1e-05 )
+shape = SubResource( 1 )

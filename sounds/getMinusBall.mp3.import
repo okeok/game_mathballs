@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/getMinusBall.mp3-7a021ddb44ed5e644dbe47216bd56772.mp3str"
+
+[deps]
+
+source_file="res://sounds/getMinusBall.mp3"
+dest_files=[ "res://.import/getMinusBall.mp3-7a021ddb44ed5e644dbe47216bd56772.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
